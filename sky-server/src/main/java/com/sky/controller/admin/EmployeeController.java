@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.locks.ReadWriteLock;
 
 /**
  * 员工管理
@@ -110,4 +111,11 @@ public class EmployeeController {
         employeeService.startOrStop(status,id);//后绪步骤定义
         return Result.success();
     }
+    @GetMapping("/{id}")
+    @ApiOperation("根据id 查询员工信息")
+    public Result getById(@PathVariable Long id){
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
+    }
+
 }
