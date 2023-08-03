@@ -6,3 +6,8 @@ sky:
     database: sky_take_out
     username: root
     password: 123456
+  alioss:
+    endpoint: oss-cn-fuzhou.aliyuncs.com
+    access-key-id: LTAI5t77vRWeUCsTPJTWEinw
+    access-key-secret: 30aXJVk5yqb8G2oWruby0h13X4MLfx
+    bucket-name: gpvi-pic
