@@ -25,7 +25,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class DishService implements com.sky.service.DishService {
+public class DishServiceImpl implements com.sky.service.DishService {
     @Autowired
     private DishMapper dishMapper;
     @Autowired
