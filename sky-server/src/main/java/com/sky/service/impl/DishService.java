@@ -84,30 +84,5 @@ public class DishService implements com.sky.service.DishService {
         }
     }
 
-    @Override
-    public DishVO getByIdWithFlavor(Long id) {
-        Dish dish = dishMapper.getById(id);
-        List<DishFlavor> dishFlavors = dishFlavorMapper.getByDishId(id);
-        DishVO dishVO = new DishVO();
-        BeanUtils.copyProperties(dish,dishVO);
-        dishVO.setFlavors(dishFlavors);
-        return dishVO;
-    }
-
-    @Override
-    public void updateWithFlavor(DishDTO dishDTO) {
-        Dish dish = new Dish();
-        BeanUtils.copyProperties(dishDTO,dish);
-        dishMapper.update(dish);
-        dishFlavorMapper.deleteByDishId(dishDTO.getId());
-        List<DishFlavor> favors = dishDTO.getFlavors();
-        if (favors!=null && favors.size() >0){
-            favors.forEach(dishFlavor -> {
-                dishFlavor.setDishId(dishDTO.getId());
-            });
-            dishFlavorMapper.insertBatch(favors);
-        }
-    }
-
 
 }
