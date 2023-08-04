@@ -84,5 +84,14 @@ public class DishService implements com.sky.service.DishService {
         }
     }
 
+    @Override
+    public List<Dish> list(Long categoryId) {
+        Dish dish = Dish.builder()
+                .categoryId(categoryId)
+                .status(StatusConstant.ENABLE)
+                .build();
+        return dishMapper.list(dish);
+    }
+
 
 }
