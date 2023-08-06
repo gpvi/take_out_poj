@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("userShopController")
-@RequestMapping("/user")
+@RequestMapping("/user/shop")
 @Slf4j
 @Api(tags = "店铺相关接口")
 public class ShopController {

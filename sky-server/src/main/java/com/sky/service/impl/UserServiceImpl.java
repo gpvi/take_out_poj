@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
      */
     public User wxLogin(UserLoginDTO userLoginDTO) {
         String openid = getOpenid(userLoginDTO.getCode());
-
+        System.out.println(openid);
         //判断openid是否为空，如果为空表示登录失败，抛出业务异常
         if(openid == null){
             throw new LoginFailedException(MessageConstant.LOGIN_FAILED);
