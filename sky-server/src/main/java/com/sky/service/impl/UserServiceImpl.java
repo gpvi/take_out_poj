@@ -10,15 +10,19 @@ import com.sky.mapper.UserMapper;
 import com.sky.properties.WeChatProperties;
 import com.sky.service.UserService;
 import com.sky.utils.HttpClientUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
+
+    //微信服务接口地址
     public static final String WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session";
 
     @Autowired
@@ -33,7 +37,7 @@ public class UserServiceImpl implements UserService {
      */
     public User wxLogin(UserLoginDTO userLoginDTO) {
         String openid = getOpenid(userLoginDTO.getCode());
-        System.out.println(openid);
+
         //判断openid是否为空，如果为空表示登录失败，抛出业务异常
         if(openid == null){
             throw new LoginFailedException(MessageConstant.LOGIN_FAILED);
@@ -48,7 +52,7 @@ public class UserServiceImpl implements UserService {
                     .openid(openid)
                     .createTime(LocalDateTime.now())
                     .build();
-            userMapper.insert(user);//后绪步骤实现
+            userMapper.insert(user);
         }
 
         //返回这个用户对象

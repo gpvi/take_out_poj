@@ -7,21 +7,22 @@ sky:
     username: root
     password: 123456
   alioss:
-    endpoint: oss-cn-fuzhou.aliyuncs.com
-    access-key-id: LTAI5t77vRWeUCsTPJTWEinw
-    access-key-secret: 30aXJVk5yqb8G2oWruby0h13X4MLfx
-    bucket-name: gpvi-pic
-
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: your-access-key-id
+    access-key-secret: your-access-key-secret
+    bucket-name: your-bucket-name
   redis:
     host: localhost
     port: 6379
     password: 123456
     database: 10
-    client-type: jedis
-    jedis:
-      pool:
-        max-active: 16
   wechat:
-    appid: wxb7e4a6bca15b863d
-    secret: 9be021b510880c2340821b6a1ebf1cb5
-
+    appid:
+    secret:
+    mchid :
+    mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
+    privateKeyFilePath: D:\pay\apiclient_key.pem
+    apiV3Key:
+    weChatPayCertFilePath: D:\pay\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
+    notifyUrl: https://58869fb.r2.cpolar.top/notify/paySuccess
+    refundNotifyUrl: https://58869fb.r2.cpolar.top/notify/refundSuccess
